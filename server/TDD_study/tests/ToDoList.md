@@ -6,3 +6,7 @@
 - amountをprivateにする
 - OK Dollarの副作用どうする？
 - Moneyの丸め処理どうする？
+- OK equals()
+- hashCode()
+- nullとの等価性比較
+- 他のオブジェクトとの等価性比較
