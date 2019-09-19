@@ -11,6 +11,12 @@ use App\Franc;
 
 class MoneyTest extends TestCase
 {
+    public function testCurrency()
+    {
+        $this->assertEquals('USD',Money::dollar(1)->currency());
+        $this->assertEquals('CHF',Money::franc(1)->currency());
+    }
+
     public function testMultiplication()
     {
         $five = Money::dollar(5);
