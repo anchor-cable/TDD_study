@@ -14,6 +14,6 @@
 - DollarとFrancの重複
 - equalsの一般化
 - timesの一般化
-- DollarとFrancを比較する
-- 通貨の概念
+- OK DollarとFrancを比較する
+- OK 通貨の概念
 - testFrancMultiplicationを削除する？

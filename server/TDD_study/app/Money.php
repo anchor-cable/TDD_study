@@ -2,36 +2,44 @@
 
 namespace App;
 
-abstract class Money{
+class Money{
     protected $amount;
     protected $currency;
-    abstract function times(int $multiplier):Money;
 
     public function __construct(int $amount, String $currency)
     {
         $this->amount = $amount;
         $this->currency = $currency;
-
     }
 
     public function equals(Money $money):bool
     {
-        return $this->amount === $money->amount and strcmp(get_class($this),get_class($money))==0;
+        return $this->amount === $money->amount and strcmp($this->currency(),$money->currency())==0;
     }
 
     static function dollar(int $amount):Money
     {
-        return new Dollar($amount,'USD');
+        return new Money($amount,'USD');
     }
 
     static function franc(int $amount):Money
     {
-        return new Franc($amount,'CHF');
+        return new Money($amount,'CHF');
     }
 
     public function currency(): String
     {
         return $this->currency;
+    }
+
+    public function times(int $multiplier): Money
+    {
+        return new Money($this->amount * $multiplier,$this->currency);
+    }
+
+    public function toString()
+    {
+        return $this->amount . " " . $this->currency;
     }
 
 }
