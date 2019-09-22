@@ -2,7 +2,10 @@
 
 namespace App;
 
-class Money{
+use App\Expression as Expression;
+
+class Money implements Expression
+{
     protected $amount;
     protected $currency;
 
@@ -37,9 +40,14 @@ class Money{
         return new Money($this->amount * $multiplier,$this->currency);
     }
 
-    public function toString()
+    public function plus(Money $addend):Expression
     {
-        return $this->amount . " " . $this->currency;
+        return new Money($this->amount + $addend->amount,$this->currency);
+
     }
 
+    function hoge()
+    {
+        // TODO: Implement hoge() method.
+    }
 }

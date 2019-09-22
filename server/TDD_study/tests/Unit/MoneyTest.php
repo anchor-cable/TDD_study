@@ -6,8 +6,7 @@ namespace Tests\Unit;
 use App\Money;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Dollar;
-use App\Franc;
+use App\Bank;
 
 class MoneyTest extends TestCase
 {
@@ -35,6 +34,14 @@ class MoneyTest extends TestCase
         $this->assertFalse($franc->equals(Money::franc(6)));
 
         $this->assertFalse($dollar->equals($franc));
+    }
+
+    public function testSimpleAddition()
+    {
+        $five = Money::dollar(5);
+        $sum = $five->plus($five);
+        $reduced = (new Bank)->reduce($sum,'USD');
+        $this->assertEquals($reduced,Money::dollar(10));
     }
 
 }
