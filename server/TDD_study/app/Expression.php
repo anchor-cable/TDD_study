@@ -3,6 +3,6 @@
 namespace App;
 
 interface Expression{
-    function hoge();
+    function reduce(String $to);
 
 }

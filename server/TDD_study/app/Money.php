@@ -2,12 +2,12 @@
 
 namespace App;
 
-use App\Expression as Expression;
+use App\Expression;
 
 class Money implements Expression
 {
-    protected $amount;
-    protected $currency;
+    public $amount;
+    public $currency;
 
     public function __construct(int $amount, String $currency)
     {
@@ -42,12 +42,11 @@ class Money implements Expression
 
     public function plus(Money $addend):Expression
     {
-        return new Money($this->amount + $addend->amount,$this->currency);
-
+        return new Sum($this,$addend);
     }
 
-    function hoge()
+    function reduce(String $to)
     {
-        // TODO: Implement hoge() method.
+        return $this;
     }
 }
