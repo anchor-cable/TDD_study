@@ -3,6 +3,6 @@
 namespace App;
 
 interface Expression{
-    function reduce(String $to);
+    function reduce(Bank $bank,String $to):Expression;
 
 }
